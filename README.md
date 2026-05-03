@@ -1,91 +1,63 @@
-# Try Out Development Containers: Java
+# Java Algorithm Lab | Java アルゴリズム・ラボ
 
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
+This repository tracks my journey in mastering data structures and algorithms using Java. It is designed with a professional backend engineering mindset, utilizing the **Factory Pattern** to ensure the code is extensible and clean.
 
-A **development container** is a running container with a well-defined tool/runtime stack and its prerequisites. You can try out development containers with **[GitHub Codespaces](https://github.com/features/codespaces)** or **[Visual Studio Code Dev Containers](https://aka.ms/vscode-remote/containers)**.
+このリポジトリは、Java を使用したデータ構造とアルゴリズムの習得プロセスを記録したものです。プロフェッショナルなバックエンド開発の考え方に基づき、**工場パターン（Factory Pattern）**を採用して、拡張性と保守性の高いコード構成にしています。
 
-This is a sample project that lets you try out either option in a few easy steps. We have a variety of other [vscode-remote-try-*](https://github.com/search?q=org%3Amicrosoft+vscode-remote-try-&type=Repositories) sample projects, too.
+---
 
-> **Note:** If you already have a Codespace or dev container, you can jump to the [Things to try](#things-to-try) section.
+## 🛠 Architecture | アーキテクチャ
 
-## Setting up the development container
+Following the **Open-Closed Principle**, the project decouples algorithm logic from execution:
+**「開放閉鎖の原則」**に従い、アルゴリズムのロジックと実行部分を分離しています：
 
-### GitHub Codespaces
-Follow these steps to open this sample in a Codespace:
-1. Click the **Code** drop-down menu.
-2. Click on the **Codespaces** tab.
-3. Click **Create codespace on main**.
+- **`Solver` Interface**: Standardizes the execution method.
+  **`Solver` インターフェース**：すべてのアルゴリズムの実行メソッドを標準化。
+- **`SolverFactory`**: Manages object creation based on input strings.
+  **`SolverFactory`**：入力文字列に基づいてオブジェクトの生成を管理。
+- **Modular Classes**: Each algorithm lives in its own dedicated class.
+  **モジュール化されたクラス**：各アルゴリズムは独立したクラスにカプセル化。
 
-For more info, check out the [GitHub documentation](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/creating-a-codespace#creating-a-codespace).
+---
 
-### VS Code Dev Containers
+## 🚀 Implemented Algorithms | 実装済みアルゴリズム
 
-If you already have VS Code and Docker installed, you can click the badge above or [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java) to get started. Clicking these links will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
+| Algorithm / アルゴリズム | Key Concept / 核心概念 | SRE/Backend Use Case / 実務での応用 |
+| :--- | :--- | :--- |
+| **Two Sum** | HashMap ($O(n)$) | High-speed data lookup in large datasets. |
+| **Valid Parentheses** | Stack (LIFO) | Validation of YAML/JSON configuration files. |
+| **Merge Intervals** | Sorting & Greedy | Managing maintenance windows or log time-ranges. |
+| **Binary Search** | Divide & Conquer | Fast log retrieval in sorted audit trails. |
 
-Follow these steps to open this sample in a container using the VS Code Dev Containers extension:
+### 日本語解説
 
-1. If this is your first time using a development container, please ensure your system meets the pre-reqs (i.e. have Docker installed) in the [getting started steps](https://aka.ms/vscode-remote/containers/getting-started).
+| アルゴリズム | 主要コンセプト | SRE/バックエンドでの活用シーン |
+| :--- | :--- | :--- |
+| **Two Sum (両数之和)** | HashMap ($O(n)$) | 大規模データセットにおける高速なデータ検索。 |
+| **Valid Parentheses (有効な括弧)** | Stack (LIFO) | YAML や JSON などの設定ファイルの整合性チェック。 |
+| **Merge Intervals (区間の結合)** | 差分管理とソート | メンテナンス時間枠の重複排除やログの時間範囲統合。 |
+| **Binary Search (二分探索)** | 分割統治法 | ソート済みの監査ログからの特定イベントの高速検索。 |
 
-2. To use this repository, you can either open the repository in an isolated Docker volume:
+---
 
-    - Press <kbd>F1</kbd> and select the **Dev Containers: Try a Sample...** command.
-    - Choose the "Java" sample, wait for the container to start, and try things out!
-        > **Note:** Under the hood, this will use the **Dev Containers: Clone Repository in Container Volume...** command to clone the source code in a Docker volume instead of the local filesystem. [Volumes](https://docs.docker.com/storage/volumes/) are the preferred mechanism for persisting container data.
+## 💻 Tech Stack | 技術スタック
 
-   Or open a locally cloned copy of the code:
+- **Language**: Java 21 (Latest LTS)
+- **Build Tool**: Maven
+- **Environment**: GitHub Codespaces
 
-   - Clone this repository to your local filesystem.
-   - Press <kbd>F1</kbd> and select the **Dev Containers: Open Folder in Container...** command.
-   - Select the cloned copy of this folder, wait for the container to start, and try things out!
+---
 
-## Things to try
+## 📖 How to Run | 実行方法
 
-Once you have this sample opened, you'll be able to work with it like you would locally.
-
-Some things to try:
-
-1. **Edit:**
-   - Open `src/main/java/com/mycompany/app/App.java`.
-   - Try adding some code and check out the language features.
-   - Make a spelling mistake and notice it is detected. The [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) extension was automatically installed because it is referenced in `.devcontainer/devcontainer.json`.
-   - Also notice that the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is installed. The JDK is in the `mcr.microsoft.com/devcontainers/java` image and Dev Container settings and metadata are automatically picked up from [image labels](https://containers.dev/implementors/reference/#labels).
-
-2. **Terminal:** Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\`</kbd> and type `uname` and other Linux commands from the terminal window.
-
-3. **Build, Run, and Debug:**
-   - Open `src/main/java/com/mycompany/app/App.java`.
-   - Add a breakpoint.
-   - Press <kbd>F5</kbd> to launch the app in the container.
-   - Once the breakpoint is hit, try hovering over variables, examining locals, and more.
-
-4. **Run a Test:**
-   - Open `src/test/java/com/mycompany/app/AppTest.java`.
-   - Put a breakpoint in a test.
-   - Click the `Debug Test` in the Code Lens above the function and watch it hit the breakpoint.
-
-5. **Install Node.js using a Dev Container Feature:**
-   - Press <kbd>F1</kbd> and select the **Dev Containers: Configure Container Features...** or **Codespaces: Configure Container Features...** command.
-   - Type "node" in the text box at the top.
-   - Check the check box next to "Node.js (via nvm) and yarn" (published by devcontainers) 
-   - Click OK
-   - Press <kbd>F1</kbd> and select the **Dev Containers: Rebuild Container** or **Codespaces: Rebuild Container** command so the modifications are picked up.
-
-  
-## Contributing
-
-This project welcomes contributions and suggestions. Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
-
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-## License
-
-Copyright © Microsoft Corporation All rights reserved.<br />
-Licensed under the MIT License. See LICENSE in the project root for license information.
+1. Open in **GitHub Codespaces**.
+   **GitHub Codespaces** でプロジェクトを開きます。
+2. Navigate to `src/main/java/com/mycompany/app/App.java`.
+   `App.java` ファイルに移動します。
+3. Update the parameter in `SolverFactory.getSolver("TYPE")` (e.g., `"BINARY"`, `"MERGE"`, `"PARENTHESES"`).
+   `SolverFactory.getSolver("TYPE")` の引数を変更します（例：`"BINARY"` など）。
+4. Execute via the "Run" button or terminal:
+   「Run」ボタンをクリックするか、ターミナルで以下を実行します：
+   ```bash
+   mvn clean compile
+   mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
