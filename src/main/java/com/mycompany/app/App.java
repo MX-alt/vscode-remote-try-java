@@ -7,6 +7,11 @@ package com.mycompany.app;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello Remote World!");
+        Solver mySolver = SolverFactory.getSolver("TwoSum");
+        if (mySolver != null) {
+            mySolver.solve();
+        } else {
+            System.out.println("未找到对应的求解器。");
+        }
     }
 }
