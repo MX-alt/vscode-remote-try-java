@@ -20,9 +20,20 @@ public class App {
         SpringApplication.run(App.class, args);
     }
 
-    // 添加一个测试接口
-    @GetMapping("/hello")
-    public String sayHello(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return String.format("Hello %s! 你的第一个 Spring Boot 接口跑通了！", name);
+    // 新的算法调用接口
+    @GetMapping("/solve")
+    public String solve(@RequestParam(value = "type", defaultValue = "TWO_SUM") String type) {
+        // 1. 使用你之前的工厂模式获取对应的算法对象
+        Solver solver = SolverFactory.getSolver(type);
+        
+        if (solver == null) {
+            return "❌ 错误：未找到名为 [" + type + "] 的算法类型。";
+        }
+
+        // 2. 执行算法并直接获取返回的结果字符串
+        String result = solver.solve();
+
+        // 3. 将结果返回给浏览器
+        return "✅ 算法执行成功！<br>类型: " + type + "<br>结果: " + result;
     }
 }

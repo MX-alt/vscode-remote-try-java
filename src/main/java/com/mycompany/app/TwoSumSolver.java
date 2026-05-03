@@ -6,11 +6,11 @@ import java.util.Map;
 // 实现 Solver 接口
 public class TwoSumSolver implements Solver {
     @Override
-    public void solve() {
+    public String solve() {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
         int[] result = findTwoSum(nums, target);
-        System.out.println("工厂模式运行：找到索引 " + result[0] + ", " + result[1]);
+        return "工厂模式运行：找到索引 " + result[0] + ", " + result[1];
     }
 
     private int[] findTwoSum(int[] nums, int target) {

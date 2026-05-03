@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MergeIntervalsSolver implements Solver {
     @Override
-    public void solve() {
+    public String solve() {
         int[][] intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         int[][] result = merge(intervals);
         
@@ -14,6 +14,7 @@ public class MergeIntervalsSolver implements Solver {
         for (int[] interval : result) {
             System.out.println(Arrays.toString(interval));
         }
+        return "Merge Intervals 问题已解决！";
     }
 
     public int[][] merge(int[][] intervals) {

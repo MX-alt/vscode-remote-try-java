@@ -2,11 +2,11 @@ package com.mycompany.app;
 
 public class BinarySearchSolver implements Solver {
     @Override
-    public void solve() {
+    public String solve() {
         int[] nums = {-1, 0, 3, 5, 9, 12}; // 必须是有序的
         int target = 9;
         int result = search(nums, target);
-        System.out.println("目标值 " + target + " 的索引位置是: " + result);
+        return "目标值 " + target + " 的索引位置是: " + result;
     }
 
     public int search(int[] nums, int target) {

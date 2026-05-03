@@ -4,10 +4,11 @@ import java.util.Stack;
 
 public class ValidParenthesesSolver implements Solver {
     @Override
-    public void solve() {
+    public String solve() {
         String testStr = "{[]}";
         boolean isValid = isValid(testStr);
         System.out.println("字符串 \"" + testStr + "\" 是否合法: " + isValid);
+        return "有效括号问题已解决！";
     }
 
     public boolean isValid(String s) {
