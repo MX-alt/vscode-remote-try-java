@@ -7,8 +7,9 @@ public class SolverFactory {
             return new TwoSumSolver();
         } else if ("ValidParentheses".equalsIgnoreCase(type)) {
             return new ValidParenthesesSolver();
+        } else if ("MergeIntervals".equalsIgnoreCase(type)) {
+            return new MergeIntervalsSolver();
         }
-        // 可以添加更多的求解器类型
         return null;
     }
 }
