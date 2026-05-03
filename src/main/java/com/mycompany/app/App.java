@@ -7,7 +7,7 @@ package com.mycompany.app;
 
 public class App {
     public static void main(String[] args) {
-        Solver mySolver = SolverFactory.getSolver("MergeIntervals");
+        Solver mySolver = SolverFactory.getSolver("BinarySearch");
         if (mySolver != null) {
             mySolver.solve();
         } else {

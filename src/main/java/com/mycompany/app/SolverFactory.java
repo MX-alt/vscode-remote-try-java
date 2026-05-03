@@ -9,6 +9,8 @@ public class SolverFactory {
             return new ValidParenthesesSolver();
         } else if ("MergeIntervals".equalsIgnoreCase(type)) {
             return new MergeIntervalsSolver();
+        } else if ("BinarySearch".equalsIgnoreCase(type)) {
+            return new BinarySearchSolver();
         }
         return null;
     }
